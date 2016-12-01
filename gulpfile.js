@@ -10,6 +10,7 @@ var uglify = require('gulp-uglify');
 var cssmin = require('gulp-cssmin');
 var autoprefixer = require('gulp-autoprefixer');
 var gIf = require('gulp-if');
+var browserslist = require('browserslist');
 
 var env = 'dev';
 var distFolder = path.resolve(__dirname, 'dist');
@@ -22,7 +23,7 @@ gulp.task('sass', function(){
         .pipe(gIf(env === 'dev', sourcemaps.init()))
         .pipe(sass().on('error', sass.logError))
         .pipe(gIf(env === 'prod', autoprefixer({
-            browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera > 10', 'Explorer >= 9', 'Chrome', 'ff', 'ie'],
+            browsers: browserslist('last 2 versions, > 1%'),
             cascade: false
         })))
         .pipe(concat('styles.css'))
