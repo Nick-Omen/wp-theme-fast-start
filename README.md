@@ -1,6 +1,8 @@
 # wp-theme-fast-start
 Use it to create custom template for WordPress CMS system.
 
+WordPress version: >= 3.0.0 
+
 ## What's included:
 * SASS-lang
 * Gulp
